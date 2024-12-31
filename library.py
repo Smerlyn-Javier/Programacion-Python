@@ -1,5 +1,12 @@
 from datetime import date
 
+# Que debe hacer:
+
+# a)  función buscar libros por autor
+# b)  función buscar libros por título del libro
+# c)  función  buscar libros por año 
+# d)  función buscar libros por disponibilidad
+
 def verificar_disponibilidad(funcion):
     def wrapper(*args, **kwargs):
         isbn = args[0]
