@@ -3,7 +3,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 # Configuración de la conexión a MySQL
-engine = create_engine('mysql+pymysql://sjavier:javier123@localhost/db_sqlAlchemy')
+engine = create_engine('mysql+pymysql://admin:admin@localhost/inventory')
 
 # Clase base para los modelos
 Base = declarative_base()
