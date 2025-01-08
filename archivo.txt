@@ -1,0 +1,5 @@
+Hola mundo
+Este es un archivo de prueba
+Para cumplir con el ejercicio
+de leer un archivo de prueba
+que contenga lineas
