@@ -30,12 +30,26 @@ class Participant:
 class GameRound:
     def __init__(self, p1, p2):
         self.rules = [
-            [0, -1, 1, 1, -1],
-            [1, 0, -1, -1, 1],
-            [-1, 1, 0, 1, -1],
-            [-1, 1, -1, 0, 1],
-            [1, -1, 1, -1, 0]
+            [0, -1, 1, 1, -1],  # Rock
+            [1, 0, -1, -1, 1],  # Paper
+            [-1, 1, 0, 1, -1],  # Scissors
+            [-1, 1, -1, 0, 1],  # Lizard
+            [1, -1, 1, -1, 0]   # Spock
         ]
+        
+        # Explicaciones de la lógica del juego
+        self.win_explanations = {
+            ("rock", "scissors"): "La piedra aplasta las tijeras",
+            ("rock", "lizard"): "La piedra aplasta al lagarto",
+            ("paper", "rock"): "El papel envuelve la piedra",
+            ("paper", "spock"): "El papel refuta a Spock",
+            ("scissors", "paper"): "Las tijeras cortan el papel",
+            ("scissors", "lizard"): "Las tijeras decapitan al lagarto",
+            ("lizard", "paper"): "El lagarto se come el papel",
+            ("lizard", "spock"): "El lagarto envenena a Spock",
+            ("spock", "rock"): "Spock vaporiza la piedra",
+            ("spock", "scissors"): "Spock rompe las tijeras"
+        }
 
         p1.choose()
         p2.choose()
@@ -65,10 +79,22 @@ class GameRound:
 class Game:
     def __init__(self):
         self.endGame = False
-        self.participant = Participant("Player 1")
-        self.secondParticipant = Participant("Player 2")
+        self.participant = Participant("Smerlyn")
+        self.secondParticipant = Participant("José")
 
     def start(self):
+        print("\n¡Bienvenido a Piedra, Papel, Tijeras, Lagarto, Spock!")
+        print("\nReglas:")
+        print("- Las tijeras cortan el papel")
+        print("- El papel envuelve la piedra")
+        print("- La piedra aplasta al lagarto")
+        print("- El lagarto envenena a Spock")
+        print("- Spock rompe las tijeras")
+        print("- Las tijeras decapitan al lagarto")
+        print("- El lagarto se come el papel")
+        print("- El papel refuta a Spock")
+        print("- Spock vaporiza la piedra")
+        print("- La piedra aplasta las tijeras\n")
         while not self.endGame:
             GameRound(self.participant, self.secondParticipant)
             self.checkEndCondition()
